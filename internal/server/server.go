@@ -33,6 +33,7 @@ func ServeWs(w http.ResponseWriter, r *http.Request, logger *loging.Logger) {
 		log.Println("upgrade:", err)
 		return
 	}
+	defer conn.Close()
 
 	client, err := ProcessClientInfo(conn)
 	if err != nil {
@@ -113,7 +114,10 @@ func ServeWs(w http.ResponseWriter, r *http.Request, logger *loging.Logger) {
 					Type:      Message.ResponseMessageStr,
 					Result:    "true",
 				}
-				client.conn.WriteJSON(msg)
+				err = client.conn.WriteJSON(msg)
+				if err != nil {
+					return
+				}
 				logger.Info().Msgf("S:%d:%d:%v", client.IdConnection, client.IdClient, msg)
 				client.CurrentMessageId++
 			case Message.RequestPingStr:

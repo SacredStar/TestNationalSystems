@@ -26,7 +26,10 @@ func NewClient(address string, log *loging.Logger) {
 	defer conn.Close()
 	var name string
 	fmt.Print("Enter your name: ")
-	fmt.Scanln(&name)
+	_, err = fmt.Scanln(&name)
+	if err != nil {
+		return
+	}
 	// for 1st we must send info
 	clientInfo := Message.ClientInfo{Name: name}
 	message := Message.ResponseMessage{
