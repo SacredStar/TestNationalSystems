@@ -1,7 +1,7 @@
 package client
 
 import (
-	"TestNationalSystems/Message"
+	"TestNationalSystems/internal/Message"
 	"TestNationalSystems/internal/loging"
 	"bufio"
 	"encoding/json"

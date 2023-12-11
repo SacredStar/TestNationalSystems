@@ -1,7 +1,7 @@
 package server
 
 import (
-	"TestNationalSystems/Message"
+	"TestNationalSystems/internal/Message"
 	"TestNationalSystems/internal/loging"
 	"encoding/json"
 	"errors"

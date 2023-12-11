@@ -8,6 +8,8 @@ import (
 )
 
 //var addr = flag.String("addr", ":8080", "http service address")
+//usage : -c=true -address=127.0.0.1 - client
+//base run without params start a server 127.0.0.1 7623
 
 func main() {
 	log.Println("Initialising  application...")
