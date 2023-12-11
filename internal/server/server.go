@@ -12,12 +12,6 @@ import (
 	"time"
 )
 
-var Upgrader = websocket.Upgrader{
-	// Doesn't need this from task, but ok
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
-}
-
 type ClientInfo struct {
 	IdConnection     int
 	IdClient         int

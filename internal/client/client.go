@@ -13,17 +13,11 @@ import (
 	"time"
 )
 
-var Upgrader = websocket.Upgrader{
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
-}
-
 var (
 	counter = 1
 )
 
 func NewClient(address string, log *loging.Logger) {
-
 	u := url.URL{Scheme: "ws", Host: address, Path: "/"}
 	conn, _, err := websocket.DefaultDialer.Dial(u.String(), nil)
 	if err != nil {
